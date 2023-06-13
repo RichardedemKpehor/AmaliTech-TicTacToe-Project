@@ -140,11 +140,10 @@ function hitBox(box) {
     checkWin(O_pattern);
   }
 
-  if (cpuBtn.getAttribute("data-value") === "active") {
+   if (cpuBtn.getAttribute("data-value") === "active") {
     cpuTurn();
-  }
+ }
 }
-
 var isThereWinner = false;
 
 function checkWin(currentPlayer) {
@@ -160,7 +159,7 @@ function checkWin(currentPlayer) {
           empty.setAttribute("onclick", "");
         }
       }
-      isThereWinner = true;
+      isThereWinner === true;
       results();
       return true;
     };
@@ -207,7 +206,7 @@ async function cpuTurn() {
   }
 
   if (OradioBtn.checked === true) {
-    const promise = new Promise((resolve) => {
+    const promise = new Promise((resolve,reject) => {
       if (turn.getAttribute("data-value") === "X") {
         box0.setAttribute("onclick", "");
         box1.setAttribute("onclick", "");
@@ -349,7 +348,7 @@ function draw() {
   drawScore.innerHTML++;
 }
 
-function nextRound() {
+/**function nextRound() {
   var boxPlayed = document.querySelectorAll(".boxPlayed");
 
   modal.style.display = "none";
@@ -378,7 +377,59 @@ function nextRound() {
   O_pattern = [];
   origBoard = Array.from(Array(9).keys());
   cpuTurn();
+}**/
+
+function nextRound() {
+  var boxPlayed = document.querySelectorAll(".boxPlayed");
+
+  modal.style.display = "none";
+  endGame.style.display = "none";
+  restartingGame.style.display = "none";
+  for (all of boxPlayed) {
+    all.parentNode.removeChild(all);
+  }
+
+  for (all of allBox) {
+    all.setAttribute("data-value", "");
+    all.classList.add("hoverClassX");
+  }
+
+  // Check if previous game was a draw
+  if (X_pattern.length === 5 && O_pattern.length === 4) {
+    // If previous game was a draw, set the turn to the opposite player
+    if (turn.getAttribute("data-value") === "X") {
+      turn.setAttribute("data-value", "O");
+      turn.src = "./assets/icon-o-turn.svg";
+    } else {
+      turn.setAttribute("data-value", "X");
+      turn.src = "./assets/icon-x-turn.svg";
+    }
+  } else {
+    // If previous game had a winner, set the turn accordingly
+    if (winnerX) {
+      turn.setAttribute("data-value", "O");
+      turn.src = "./assets/icon-o-turn.svg";
+    } else {
+      turn.setAttribute("data-value", "X");
+      turn.src = "./assets/icon-x-turn.svg";
+    }
+  }
+
+  box0.setAttribute("onclick", "hitBox('0')");
+  box1.setAttribute("onclick", "hitBox('1')");
+  box2.setAttribute("onclick", "hitBox('2')");
+  box3.setAttribute("onclick", "hitBox('3')");
+  box4.setAttribute("onclick", "hitBox('4')");
+  box5.setAttribute("onclick", "hitBox('5')");
+  box6.setAttribute("onclick", "hitBox('6')");
+  box7.setAttribute("onclick", "hitBox('7')");
+  box8.setAttribute("onclick", "hitBox('8')");
+  X_pattern = [];
+  O_pattern = [];
+  origBoard = Array.from(Array(9).keys());
+  cpuTurn();
 }
+
 
 function displayModalRestart() {
   modal.style.display = "initial";

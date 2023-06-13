@@ -196,6 +196,7 @@ select {
   font-size: var(--fs-700);
   letter-spacing: 1px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .fs-600 {
@@ -263,11 +264,13 @@ select {
   gap: 0;
   max-width: 327px;
   box-shadow: inset 0px -8px 0px #10212a;
+  
 }
 
 @media (min-width: 35em) {
   .choose-mark {
     max-width: 460px;
+   
   }
 }
 
@@ -588,6 +591,7 @@ select {
   border-radius: 10px;
   text-align: center;
   padding-top: 0.8125rem;
+  
 }
 
 @media (min-width: 35em) {
@@ -596,6 +600,7 @@ select {
     height: 4.5rem;
     border-radius: 15px;
     margin-bottom: 2rem;
+    
   }
 }
 
@@ -689,6 +694,7 @@ select {
 
 .quitBtn:hover {
   background-color: hsl(var(--clr-silverHover));
+  cursor: pointer;
 }
 
 .nextBtn {
@@ -700,6 +706,7 @@ select {
 
 .nextBtn:hover {
   background-color: hsl(var(--clr-orangeHover));
+  cursor: pointer;
 }
 
 .restartGame {
@@ -707,6 +714,7 @@ select {
   flex-direction: column;
   align-items: center;
   padding-top: 1.3125rem;
+  
 }
 
 .restartGame p {
@@ -718,6 +726,7 @@ select {
   border: none;
   border-radius: 10px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .restartGame button:active {
@@ -743,4 +752,5 @@ select {
 
 .restartBtn:hover {
   background-color: hsl(var(--clr-orangeHover));
+  cursor: pointer;
 }
